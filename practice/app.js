@@ -243,28 +243,10 @@ console.log('円の面積は' + getArea3(5) + 'です');
 //returnの右側に書いたものは、関数の呼び出し個所に返すことができ
 //この返ってきた値を返り値と呼ぶ？？
 //必ず必要なものではないらしいが使いどころがあるみたい
+//感覚的には中にある関数の答え（返り値）を外に押し出すみたいな動作ができる
 //技名「早期リターン」「ガード節」
 
-//関数の定義方法？
-function define1() { // define1という名前の関数
-  return 'This is console in showConsole function!';
-}
-const define2 = function() { // 名前のない関数（無名関数）を変数define2に代入
-  return 'This is console in showConsole function!';
-}
-console.log(define1());
-console.log(define2());
-
-
-//●コールバック関数//
-function doFunc(callback) {
-  console.log('doFuncが呼び出されました');
-  callback();
-}
-doFunc(function() {
-  console.log('コールバック関数が呼び出されました');
-});//これは無名関数というらしい（？）
-
+//関数の定義方法
 //　↓　名前がついている関数の場合　↓
 //function output() {
 // console.log('コールバック関数が呼び出されました');
@@ -281,6 +263,34 @@ doFunc(function() {
 //}　※これは define2にfunction()だから関数が変数の中に
 // 　　入っているだけで関数自体に名前がないから「無名関数」
 //　　　「define2の中に入っている関数（処理）だよ」ってだけだから名前無いよね
+
+
+//●コールバック関数//
+function doFunc(callback) {
+  console.log('doFuncが呼び出されました');
+  callback();
+}
+doFunc(function() {
+  console.log('コールバック関数が呼び出されました');
+});//これは無名関数
+//function output() {
+//  console.log('コールバック関数が呼び出されました');
+//} これは名前がついている関数
+//　　こっちの場合はdoFunc(output)と書けば実行される
+
+
+//引数には、数値や文字列以外に関数も渡すことができるが
+// この引数に渡す関数のことをコールバック関数という（引数の部分に関数を渡す行為）
+//上の例だとdoFunc()の()内の(名前無し)関数の事とoutputという名の関数の事を
+//　「コールバック関数」と呼ぶ
+//名前付き関数は何度も使う処理に、無名はその場限りの処理に
+// って使いわけるんだって
+
+//ちなみに…returnとcallbackについて
+//returnは中身を跳ね返して送り出す、
+// callbackはこれが処理された時、次にこれを処理してねという予約注文
+//returnは「ステートメント（意味：命令文）」でcallbackは「関数（そのもの）」
+//returnは予約語、callbackは関数（を引数として）に関数を渡す行為の事
 
 
 //●オブジェクトに関数を持たせる●//
