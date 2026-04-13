@@ -85,10 +85,16 @@ console.log(calc.multiply(7,7));
 console.log(calc.divide(10,2));
 
 //Q9
+//function remainder(x,y){
+//return + x + 'を' + y + 'で割った余りは' + x % y + 'です。';
+//}
+//console.log(remainder(5,3));
 function remainder(x,y){
-return + x + 'を' + y + 'で割った余りは' + x % y + 'です。';
+  return x % y;
 }
-console.log(remainder(5,3));
+let x = 5
+let y = 3
+console.log( x + 'を' + y + 'で割った余りは' + remainder(x,y) + 'です。');
 
 //Q10
 function foo() {
@@ -116,7 +122,7 @@ function printName(firstName, formatter) {
   console.log(formatter(firstName));
 }
 const addIntro = (name) => '私の名前は' + name + 'です。';
-printName('名前', addIntro);
+printName('見持', addIntro);
 
 //応用Q3
 let num =5;
@@ -137,11 +143,19 @@ console.log(numbers, numbers.length);
 
 //応用Q5
 let mixed = [4, '2', 5, '8', '9', 0, 1];
+//for(let i =0; i< mixed.length; i++){
+//  if(typeof mixed[i] !== 'number'){
+//    console.log('not number');
+//  }else if(mixed[i] % 2 === 0){
+//    console.log('even');
+//  }else{
+//    console.log('odd');
+//  }}
 for(let i =0; i< mixed.length; i++){
-  if(typeof mixed[i] !== 'number'){
-    console.log('not number');
-  }else if(mixed[i] % 2 === 0){
+  if(typeof mixed[i] === 'number' && mixed[i] % 2 === 0){
     console.log('even');
-  }else{
+  }else if(typeof mixed[i] === 'number' && mixed[i] % 2 !== 0){
     console.log('odd');
+  }else if(typeof mixed[i] !== 'number'){
+    console.log('not number');
   }}
